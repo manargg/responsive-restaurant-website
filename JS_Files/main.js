@@ -87,18 +87,17 @@ const darkTheme = "dark-theme";
 const iconMoon = "bx-moon";
 const iconSun = "bx-sun";
 
-// Retrieve the previously selected theme from localStorage
+//Retrieve the previously selected theme from localStorage
 const selectedTheme = localStorage.getItem("selected-theme");
 const selectedIcon = localStorage.getItem("selected-icon");
 
-// Apply the saved theme on page load
+
 if (selectedTheme) {
     document.body.classList[selectedTheme === "dark" ? "add" : "remove"](darkTheme);
     themeButton.classList[selectedIcon === "bx-sun" ? "add" : "remove"](iconSun);
     themeButton.classList[selectedIcon === "bx-moon" ? "add" : "remove"](iconMoon);
 }
 
-// Toggle theme on button click
 themeButton.addEventListener("click", function () {
     document.body.classList.toggle(darkTheme);
     if (document.body.classList.contains(darkTheme)) {
