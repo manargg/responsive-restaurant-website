@@ -80,6 +80,7 @@ sr.reveal(`.home_data, .home_img,
     interval: 200
 })
 
+/*==================== DARK LIGHT THEME ====================*/ 
 
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
