@@ -62,19 +62,6 @@ function scrollTop() {
 window.addEventListener('scroll', scrollTop);
 
 
-/*==================== DARK SCROLL TOP ====================*/ 
-const themeButton = document.getElementById("theme-button");
-const darkTheme = "dark-theme";
-
-themeButton.addEventListener("click", function(){
-    document.body.classList.toggle(darkTheme);
-
-    if(themeButton.classList.contains("bx-moon")){
-        themeButton.classList.replace("bx-moon", "bx-sun");
-    }else{
-        themeButton.classList.replace("bx-sun", "bx-moon");
-    }
-});
 /*==================== SCROLL REVEAL ANIMATION ====================*/
 const sr = ScrollReveal({
     origin: 'top',
@@ -91,3 +78,35 @@ sr.reveal(`.home_data, .home_img,
             .footer_content`, {
     interval: 200
 })
+
+/*==================== DARK LIGHT THEME ====================*/ 
+const themeButton = document.getElementById("theme-button");
+const darkTheme = "dark-theme";
+const iconTheme = "bx-sun";
+
+// Previously selected theme/icon
+const selectedTheme = localStorage.getItem("selected-theme");
+const selectedIcon = localStorage.getItem("selected-icon");
+
+// Get current theme and icon
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? "dark" : "light";
+const getCurrentIcon = () => themeButton.classList.contains("bx-moon") ? "bx-sun" : "bx-moon";
+
+// Apply previously saved theme
+if (selectedTheme) {
+    document.body.classList[selectedTheme === "dark" ? "add" : "remove"](darkTheme);
+    themeButton.classList[selectedIcon === "bx-moon" ? "add" : "remove"]("bx-moon");
+}
+
+// Add event listener only if themeButton exists
+if (themeButton) {
+    themeButton.addEventListener("click", () => {
+        document.body.classList.toggle(darkTheme);
+        themeButton.classList.toggle("bx-moon");
+        themeButton.classList.toggle("bx-sun");
+
+        // Save user preference
+        localStorage.setItem("selected-theme", getCurrentTheme());
+        localStorage.setItem("selected-icon", getCurrentIcon());
+    });
+}
