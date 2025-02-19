@@ -23,27 +23,24 @@ function scrollHeader(){
 window.addEventListener('scroll', scrollHeader)
 /*========================================*/ 
 
-const sections = document.querySelectorAll('section[id]') // Select all <section> elements that have an 'id' attribute
+const sections = document.querySelectorAll('section[id]');
 
 function scrollActive() {
-    const scrollY = window.pageYOffset // Get the number of pixels the document is currently scrolled vertically
+    const scrollY = window.pageYOffset; 
 
     sections.forEach(current => {
-        const sectionHeight = current.offsetHeight // Get the height of the current section
-        const sectionTop = current.offsetTop - 50; // Get the top position of the section, adjusting by 50px
-        let sectionId = current.getAttribute('id'); // Get the 'id' attribute of the current section
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 50; 
+        let sectionId = current.getAttribute('id'); 
 
-        // Check if the current scroll position is within the current section's range
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            // If the scroll position is within the section, add 'active-link' class to the corresponding navigation link
+           k
             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
         } else {
-            // Otherwise, remove the 'active-link' class
             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
         }
     })
 }
-// Add an event listener for the 'scroll' event
 window.addEventListener('scroll', scrollActive);
 
 
