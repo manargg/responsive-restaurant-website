@@ -14,6 +14,14 @@ navLinks.forEach(link =>{
     });
 });
 
+/*==================== CHANGE BACKGROUND HEADER ====================*/ 
+function scrollHeader(){
+    const nav = document.getElementById('header')
+    // When the scroll is greater than 200 viewport height, add the scroll-header class to the header tag
+    if(this.scrollY >= 200) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
+}
+window.addEventListener('scroll', scrollHeader)
+/*========================================*/ 
 
 const sections = document.querySelectorAll('section[id]') // Select all <section> elements that have an 'id' attribute
 
@@ -50,6 +58,36 @@ function scrollTop() {
         scrollTop.classList.remove('show-scroll');
     }
 }
-
 // Listen for the scroll event
 window.addEventListener('scroll', scrollTop);
+
+
+/*==================== DARK SCROLL TOP ====================*/ 
+const themeButton = document.getElementById("theme-button");
+const darkTheme = "dark-theme";
+
+themeButton.addEventListener("click", function(){
+    document.body.classList.toggle(darkTheme);
+
+    if(themeButton.classList.contains("bx-moon")){
+        themeButton.classList.replace("bx-moon", "bx-sun");
+    }else{
+        themeButton.classList.replace("bx-sun", "bx-moon");
+    }
+});
+/*==================== SCROLL REVEAL ANIMATION ====================*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '30px',
+    duration: 1500,
+    reset: true
+});
+
+sr.reveal(`.home_data, .home_img,
+            .about_data, .about_img,
+            .services_content, .menu_content,
+            .app_data, .app_img,
+            .contact_data, .contact_button,
+            .footer_content`, {
+    interval: 200
+})

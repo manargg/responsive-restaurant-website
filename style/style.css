@@ -85,7 +85,24 @@
     max-width: 100%;
     height: auto;
  }
+ /*============the moon theme button=============*/
+ .change-theme{
+   position: absolute;
+   right: 1rem;
+   top: 1.8rem;
+   color: var(--text-color);
+   font-size: 1rem;
+   cursor: pointer;
+ }
 
+ body.dark-theme{
+   --title-color: #F1F3F2;
+   --text-color: #C7D1CC;
+   --body-color: #1D2521;
+   --container-color: #27302C;
+ }
+
+/*=====================*/
  .section{
    padding: 4rem 0 2rem;
  }
@@ -151,6 +168,7 @@
    }
 }
 
+
 .nav_item{
    margin-bottom: var(--mb-2);
 }
@@ -175,6 +193,11 @@
 .show-menu{
  top:var(--header-height);
 }
+/* Active menu */
+.active-link{
+   color: var(--first-color);
+ }
+
 /*================scroll=========================*/
 .scroll-header{
    box-shadow: 0 2px 4px rgba(0,0,0,.1);
@@ -208,7 +231,7 @@
 
 /*=============HOME================*/
 .home_container{
-   height: calc(100VH - va(--header-height));
+   height: calc(100vh - var(--header-height));
    align-content: center;
 }
 .home_title{
@@ -224,6 +247,8 @@
 .home_img{
    width: 300px;
    justify-self: center;
+   margin-top: var(--mb-4);
+   
 }
 
 /*===========BUTTONS=============*/
@@ -331,4 +356,137 @@
    width: 230px;
    justify-self: center;
 }
-/*=============CONTACT US================*/
+/*=============CONTACT-US================*/
+.contact_container{
+   text-align: center;
+}
+.contact_description{
+   margin-bottom: var(--mb-3);
+}
+/*=============FOOTER================*/
+.footer_container{
+   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+   row-gap: 2rem;
+}
+.footer_logo{
+   font-size: var(--h3-font-size);
+   color: var(--first-color);
+   font-weight: var(--font-semi-bold);
+}
+.footer_description{
+   display: block;
+   font-size: var(--small-font-size);
+   margin: 0.25rem 0 var(--mb-3);
+}
+.footer_social{
+   font-size: 1.5rem;
+   color: var(--title-color);
+   margin-right: var(--mb-2);
+}
+.footer_title{
+   font-size: var(--h2-font-size);
+   color: var(--title-color);
+   margin-bottom: var(--mb-2);
+}
+.footer_link{
+   display: inline-block;
+   color: var(--text-color);
+   margin-bottom: var(--mb-1);
+}
+.footer_link:hover{
+   color: var(--first-color);
+}
+.footer_copy{
+   text-align: center;
+   font-size: var(--small-font-size);
+   color: var(--text-color-light);
+   margin-top: 3.5rem;
+}
+/*==============MEDIA QUERY=================*/
+@media (min-width:576px) {
+   .home_container, .about_container, .app_container{
+      grid-template-columns: repeat(2,1fr);
+      align-items: center;
+   }
+   .about_data, .about_initial, 
+   .app_data, .app_initial,
+   .contact_container, .contact_initial{
+      text-align: initial;
+   }
+   .about_img, .app_img{
+      width: 380px;
+      order: -1;
+   }
+   .contact_container{
+      grid-template-columns: 1.75fr 1fr;
+      align-items: center;
+   }
+   .contact_button{
+      justify-self: center;
+   }
+}
+
+@media (min-width:768px) {
+   body{
+      margin: 0;
+   }
+   .section{
+      padding-top: 8rem;
+   }
+   .nav{
+      height: calc(var(--header-height) + 1.5rem);
+   }
+   .nav_list{
+      display: flex;
+   }
+   .nav_item{
+      margin-left: var(--mb-5);
+      margin-bottom: 0;  
+    }
+   .nav_toggle{
+      display: none;
+   }
+   .change-theme{
+      position: initial;
+      margin-left: var(--mb-2);
+    }
+   .home_container{
+      height: 100vh;
+      justify-items: center;
+   }
+   .services_container, .menu_container{
+      margin-top: var(--mb-6);
+   }
+   .menu_container{
+      grid-template-columns: repeat(3, 210px);
+      column-gap: 4rem;
+   }
+   .menu_content{
+      padding: 1.5rem;
+   }
+   .menu_img{
+      width: 130px;
+   }
+   .app_store{
+      margin: 0 var(--mb-1) 0 0;
+   }
+}
+
+@media (min-width: 960px) {
+   .bd-container{
+      margin-inline: auto;
+   }
+   .home_img{
+      width: 500px;
+   }
+   .about_container,.app_container{
+      column-gap: 7rem;
+   }
+}
+
+/* For tall screens on mobiles y desktop*/
+@media screen and (min-height: 721px) {
+   .home__container {
+       height: 640px;
+   }
+}

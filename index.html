@@ -26,7 +26,9 @@
             <li class="nav_item"><a href="#about" class="nav_link">About</a></li>
             <li class="nav_item"><a href="#services" class="nav_link">Services</a></li>
             <li class="nav_item"><a href="#menu" class="nav_link">Menu</a></li>
-            <li class="nav_item"><a href="contact" class="nav_link">Contact Us</a></li>
+            <li class="nav_item"><a href="#contact" class="nav_link">Contact Us</a></li>
+        
+            <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
         </ul>
     </div>
 
@@ -46,9 +48,8 @@
                 <h1 class="home_title">Tasty food</h1>
                 <h2 class="home_subtitle">Try the best best food of <br>the week. </h2>
                 <a href="#a" class="button">View Menu</a>
-
-                <img src="/img/home.png" alt="" class="home_img">
             </div>
+            <img src="/img/home.png" alt="" class="home_img">
         </div>
     </section>
 
@@ -56,8 +57,8 @@
     <section class="about section bd-container" id="about">
         <div class="about_container bd-grid">
             <div class="about_data">
-                <span class="section-subtitle">About us</span>
-                <h2 class="section-title">We cook the best <br> tasty food.</h2>
+                <span class="section-subtitle about_initial">About us</span>
+                <h2 class="section-title about_initial">We cook the best <br> tasty food.</h2>
                 <p class="about_description">We cook the best food in the entire city, with excellent customer service, the best meals and at the best price, visit us.</p>
                 <a href="" class="button">Explore history</a>
             </div>
@@ -76,17 +77,13 @@
             <h3 class="services_title">Excellent food</h3>
             <p class="services_description">We offer our clients excellent quality services for many years, with the best and delicious food in the city.</p>
         </div>
-    </div>
-
-    <div class="services_container bd-grid">
+    
         <div class="services_content">
             <img class="services_img" src="/img/pizza.svg" alt="">
             <h3 class="services_title">Fast food</h3>
             <p class="services_description">We offer our clients excellent quality services for many years, with the best and delicious food in the city.</p>
         </div>
-    </div>
-
-    <div class="services_container bd-grid">
+    
         <div class="services_content">
             <img class="services_img" src="/img/truck.svg" alt="">
             <h3 class="services_title">Delivery</h3>
@@ -131,8 +128,8 @@
     <section class="app section bd-container">
         <div class="app_container bd-grid">
             <div class="app_data">
-                <span class="section-subtitle">App</span>
-                <h2 class="section-title">App is avilable</h2>
+                <span class="section-subtitle app_initial">App</span>
+                <h2 class="section-title app_initial">App is avilable</h2>
                 <p class="app_description">Find our application and download it, you can make reservations, food orders, see your deliveries on the way and much more.</p>
                 
                 <div class="app_stores">
@@ -149,15 +146,69 @@
     <section class="contact section bd-container" id="contact">
         <div class="contact_container bd-grid">
             <div class="contact_data">
-                <span class="section-subtitle">Let's talk</span>
-                <h2 class="section-title">Contact us</h2>
-                <p class="contacr_description"></p>
+                <span class="section-subtitle contact_initial">Let's talk</span>
+                <h2 class="section-title contact_initial">Contact us</h2>
+                <p class="contact_description">If you want to reserve a table in our restaurant, contact us and we will attend you quickly, with our 24/7 chat service.</p>
+            </div>
+
+            <div class="contact_button">
+                <a href="#" class="button">Contact us now</a>
             </div>
         </div>
     </section>
 </main>
 
+ <!--THE FOOTER SECTION-->
+ <footer class="footer section bd-container">
+    <div class="footer_container bd-grid">
+        <div class="footer__content">
+            <a href="" class="footer_logo">Tasty Food</a>
+            <span class="footer_description">Restaurant</span>
 
+            <div>
+                <a href="#" class="footer_social"><i class='bx bxl-facebook' ></i></a>
+                <a href="#" class="footer_social"><i class='bx bxl-instagram' ></i></a>
+                <a href="#" class="footer_social"><i class='bx bxl-twitter' ></i></a>
+            </div>
+        </div>
+
+        <div class="footer_content">
+            <h3 class="footer_title">Services</h3>
+            <ul>
+                <li><a href="#" class="footer_link">Delivery</a></li>
+                <li><a href="#" class="footer_link">Priceing</a></li>
+                <li><a href="#" class="footer_link">Fast food</a></li>
+                <li><a href="#" class="footer_link">Reserve your spot</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer_content">
+            <h3 class="footer_title">Information</h3>
+            <ul>
+                <li><a href="#" class="footer_link">Event</a></li>
+                <li><a href="#" class="footer_link">Contact</a></li>
+                <li><a href="#" class="footer_link">Privacy policy</a></li>
+                <li><a href="#" class="footer_link">Terms of services</a></li>
+            </ul>
+        </div>
+
+        <div class="footer_content">
+            <h3 class="footer_title">Address</h3>
+            <ul>
+                <li>Lima - Peru</li>
+                <li>Jr Union #999</li>
+                <li>999 - 888 - 777</li>
+                <li>tastyfood@email.com</li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="footer_copy">
+        © 2020 Bedimcode. All right reserved
+    </p>
+ </footer>
+
+<script src="https://unpkg.com/scrollreveal"></script>
 <script src="/JS_Files/main.js"></script>
 </body>
 </html>
