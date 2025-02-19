@@ -31,7 +31,7 @@ function scrollActive() {
     sections.forEach(current => {
         const sectionHeight = current.offsetHeight // Get the height of the current section
         const sectionTop = current.offsetTop - 50; // Get the top position of the section, adjusting by 50px
-        sectionId = current.getAttribute('id') // Get the 'id' attribute of the current section
+        let sectionId = current.getAttribute('id'); // Get the 'id' attribute of the current section
 
         // Check if the current scroll position is within the current section's range
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
@@ -62,6 +62,7 @@ function scrollTop() {
 window.addEventListener('scroll', scrollTop);
 
 
+
 /*==================== SCROLL REVEAL ANIMATION ====================*/
 const sr = ScrollReveal({
     origin: 'top',
@@ -79,34 +80,35 @@ sr.reveal(`.home_data, .home_img,
     interval: 200
 })
 
-/*==================== DARK LIGHT THEME ====================*/ 
+
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
-const iconTheme = "bx-sun";
+const iconMoon = "bx-moon";
+const iconSun = "bx-sun";
 
-// Previously selected theme/icon
+// Retrieve the previously selected theme from localStorage
 const selectedTheme = localStorage.getItem("selected-theme");
 const selectedIcon = localStorage.getItem("selected-icon");
 
-// Get current theme and icon
-const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? "dark" : "light";
-const getCurrentIcon = () => themeButton.classList.contains("bx-moon") ? "bx-sun" : "bx-moon";
-
-// Apply previously saved theme
+// Apply the saved theme on page load
 if (selectedTheme) {
     document.body.classList[selectedTheme === "dark" ? "add" : "remove"](darkTheme);
-    themeButton.classList[selectedIcon === "bx-moon" ? "add" : "remove"]("bx-moon");
+    themeButton.classList[selectedIcon === "bx-sun" ? "add" : "remove"](iconSun);
+    themeButton.classList[selectedIcon === "bx-moon" ? "add" : "remove"](iconMoon);
 }
 
-// Add event listener only if themeButton exists
-if (themeButton) {
-    themeButton.addEventListener("click", () => {
-        document.body.classList.toggle(darkTheme);
-        themeButton.classList.toggle("bx-moon");
-        themeButton.classList.toggle("bx-sun");
+// Toggle theme on button click
+themeButton.addEventListener("click", function () {
+    document.body.classList.toggle(darkTheme);
+    if (document.body.classList.contains(darkTheme)) {
+        themeButton.classList.replace(iconMoon, iconSun);
+        localStorage.setItem("selected-theme", "dark");
+        localStorage.setItem("selected-icon", "bx-sun");
+    } else {
+        themeButton.classList.replace(iconSun, iconMoon);
+        localStorage.setItem("selected-theme", "light");
+        localStorage.setItem("selected-icon", "bx-moon");
+    }
+});
 
-        // Save user preference
-        localStorage.setItem("selected-theme", getCurrentTheme());
-        localStorage.setItem("selected-icon", getCurrentIcon());
-    });
-}
+   
